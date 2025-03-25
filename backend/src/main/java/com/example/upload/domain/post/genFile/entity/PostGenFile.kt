@@ -35,9 +35,9 @@ class PostGenFile: GenFile {
         originalFileName,
         metadataStr,
         yyyyMmDd,
+        fileExt,
         fileExtTypeCode,
         fileExtType2Code,
-        fileExt,
         fileName,
         fileSize
             ) {

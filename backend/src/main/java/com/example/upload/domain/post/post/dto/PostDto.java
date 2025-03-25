@@ -33,7 +33,7 @@ public class PostDto {
         this.title = post.getTitle();
         this.authorId = post.getAuthor().getId();
         this.authorName = post.getAuthor().getNickname();
-        this.published = post.isPublished();
-        this.listed = post.isListed();
+        this.published = post.getPublished();
+        this.listed = post.getListed();
     }
 }

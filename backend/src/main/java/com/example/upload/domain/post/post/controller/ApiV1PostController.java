@@ -101,7 +101,7 @@ public class ApiV1PostController {
                 () -> new ServiceException("404-1", "존재하지 않는 글입니다.")
         );
 
-        if (!post.isPublished()) {
+        if (!post.getPublished()) {
             Member actor = rq.getActor();
             post.canRead(actor);
         }

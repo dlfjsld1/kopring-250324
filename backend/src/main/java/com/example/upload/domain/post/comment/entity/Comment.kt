@@ -18,6 +18,8 @@ class Comment: BaseTime {
 
     lateinit var content: String
 
+    constructor()
+
     constructor(post: Post, author: Member, content: String) {
         this.post = post
         this.author = author

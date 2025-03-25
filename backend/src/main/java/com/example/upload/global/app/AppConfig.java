@@ -19,10 +19,17 @@ public class AppConfig {
     @Getter
     public static String genFileDirPath;
 
+    public static String getGenFileDirPath() {
+        return genFileDirPath;
+    }
+
     private static Environment environment;
 
-    @Getter
     private static String siteBackUrl;
+
+    public static String getSiteBackUrl() {
+        return siteBackUrl;
+    }
 
     @Value("${custom.site.backUrl}")
     public void setSiteBackUrl(String siteBackUrl) {

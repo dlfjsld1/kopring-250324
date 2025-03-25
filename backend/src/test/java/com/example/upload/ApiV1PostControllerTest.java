@@ -61,8 +61,8 @@ public class ApiV1PostControllerTest {
                 .andExpect(jsonPath("$.data.content").value(post.getContent()))
                 .andExpect(jsonPath("$.data.authorId").value(post.getAuthor().getId()))
                 .andExpect(jsonPath("$.data.authorName").value(post.getAuthor().getNickname()))
-                .andExpect(jsonPath("$.data.published").value(post.isPublished()))
-                .andExpect(jsonPath("$.data.listed").value(post.isListed()))
+                .andExpect(jsonPath("$.data.published").value(post.getPublished()))
+                .andExpect(jsonPath("$.data.listed").value(post.getListed()))
                 .andExpect(jsonPath("$.data.createdDate").value(matchesPattern(post.getCreatedDate().toString().replaceAll("0+$", "") + ".*")))
                 .andExpect(jsonPath("$.data.modifiedDate").value(matchesPattern(post.getModifiedDate().toString().replaceAll("0+$", "") + ".*")));
     }
@@ -81,8 +81,8 @@ public class ApiV1PostControllerTest {
                     .andExpect(jsonPath("$.data.items[%d].content".formatted(i)).doesNotExist())
                     .andExpect(jsonPath("$.data.items[%d].authorId".formatted(i)).value(post.getAuthor().getId()))
                     .andExpect(jsonPath("$.data.items[%d].authorName".formatted(i)).value(post.getAuthor().getNickname()))
-                    .andExpect(jsonPath("$.data.items[%d].published".formatted(i)).value(post.isPublished()))
-                    .andExpect(jsonPath("$.data.items[%d].listed".formatted(i)).value(post.isListed()))
+                    .andExpect(jsonPath("$.data.items[%d].published".formatted(i)).value(post.getPublished()))
+                    .andExpect(jsonPath("$.data.items[%d].listed".formatted(i)).value(post.getListed()))
                     .andExpect(jsonPath("$.data.items[%d].createdDate".formatted(i)).value(matchesPattern(post.getCreatedDate().toString().replaceAll("0+$", "") + ".*")))
                     .andExpect(jsonPath("$.data.items[%d].modifiedDate".formatted(i)).value(matchesPattern(post.getModifiedDate().toString().replaceAll("0+$", "") + ".*")));
         }

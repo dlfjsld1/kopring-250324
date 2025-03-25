@@ -5,9 +5,7 @@ import com.example.upload.domain.member.member.service.MemberService;
 import com.example.upload.domain.post.genFile.entity.PostGenFile;
 import com.example.upload.domain.post.post.entity.Post;
 import com.example.upload.domain.post.post.service.PostService;
-import com.example.upload.global.app.AppConfig;
 import com.example.upload.standard.util.SampleResource;
-import com.example.upload.standard.util.Ut;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationRunner;
@@ -42,9 +40,9 @@ public class BaseInitData {
             return;
         }
 
-        if (AppConfig.isTest()) {
-            Ut.file.rm(AppConfig.getGenFileDirPath());
-        }
+//        if (AppConfig.isTest()) {
+//            Ut.file.rm(AppConfig.getGenFileDirPath());
+//        }
 
         // 회원 샘플데이터 생성
         memberService.join("system", "system1234", "시스템", "");

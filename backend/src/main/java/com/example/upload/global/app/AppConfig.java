@@ -13,8 +13,11 @@ import org.springframework.core.io.ClassPathResource;
 @Configuration
 public class AppConfig {
 
-    @Getter
     public static ObjectMapper objectMapper;
+
+    public static ObjectMapper getObjectMapper() {
+        return objectMapper;
+    }
 
     @Getter
     public static String genFileDirPath;
@@ -75,8 +78,11 @@ public class AppConfig {
         return System.getProperty("java.io.tmpdir");
     }
 
-    @Getter
     private static Tika tika;
+
+    public static Tika getTika() {
+        return tika;
+    }
 
     @Autowired
     public void setTika(Tika tika) {

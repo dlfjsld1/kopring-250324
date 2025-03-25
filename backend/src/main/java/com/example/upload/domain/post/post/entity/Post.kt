@@ -108,7 +108,7 @@ class Post() :
         }
     }
 
-    fun modifyGenFile(typeCode: PostGenFile.TypeCode, fileNo: Int, filePath: String?) {
+    fun modifyGenFile(typeCode: PostGenFile.TypeCode, fileNo: Int, filePath: String) {
         getGenFileByTypeCodeAndFileNo(
             typeCode,
             fileNo

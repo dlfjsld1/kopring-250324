@@ -3,7 +3,7 @@ package com.example.upload;
 import com.example.upload.domain.member.member.entity.Member;
 import com.example.upload.domain.member.member.service.MemberService;
 import com.example.upload.domain.post.post.controller.ApiV1PostController;
-import com.example.upload.domain.post.post.controller.SearchKeywordType;
+import com.example.upload.standard.search.SearchKeywordType;
 import com.example.upload.domain.post.post.dto.PostListParamDto;
 import com.example.upload.domain.post.post.entity.Post;
 import com.example.upload.domain.post.post.service.PostService;

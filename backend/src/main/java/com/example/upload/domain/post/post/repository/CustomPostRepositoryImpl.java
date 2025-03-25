@@ -1,7 +1,7 @@
 package com.example.upload.domain.post.post.repository;
 
 import com.example.upload.domain.member.member.entity.Member;
-import com.example.upload.domain.post.post.controller.SearchKeywordType;
+import com.example.upload.standard.search.SearchKeywordType;
 import com.example.upload.domain.post.post.dto.PostListParamDto;
 import com.example.upload.domain.post.post.entity.Post;
 import com.querydsl.core.BooleanBuilder;

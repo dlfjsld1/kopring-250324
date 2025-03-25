@@ -1,6 +1,6 @@
 package com.example.upload.domain.post.post.dto;
 
-import com.example.upload.domain.post.post.controller.SearchKeywordType;
+import com.example.upload.standard.search.SearchKeywordType;
 import lombok.Builder;
 
 @Builder

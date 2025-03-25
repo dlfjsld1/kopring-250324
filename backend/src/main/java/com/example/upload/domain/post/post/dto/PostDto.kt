@@ -3,7 +3,7 @@ package com.example.upload.domain.post.post.dto
 import com.example.upload.domain.post.post.entity.Post
 import java.time.LocalDateTime
 
-class PostDto(
+open class PostDto(
     val id: Long,
     val createdDate: LocalDateTime,
     val modifiedDate: LocalDateTime,

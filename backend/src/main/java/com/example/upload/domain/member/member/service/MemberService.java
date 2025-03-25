@@ -61,11 +61,9 @@ public class MemberService {
         String nickname = (String) payload.get("nickname");
 
         return Optional.of(
-
                 new Member(
                         id,
                         username,
-
                         nickname
                 )
         );

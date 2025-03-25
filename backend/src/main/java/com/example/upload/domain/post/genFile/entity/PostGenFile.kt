@@ -46,7 +46,7 @@ class PostGenFile: GenFile {
     }
 
     override fun getOwnerModelId(): Long {
-        return post.id
+        return post.id!!
     }
 
     override fun getTypeCodeAsStr(): String {

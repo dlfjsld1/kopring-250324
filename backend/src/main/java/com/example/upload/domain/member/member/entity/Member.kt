@@ -1,19 +1,23 @@
 package com.example.upload.domain.member.member.entity
 
 import com.example.upload.global.entity.BaseTime
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import org.springframework.security.core.GrantedAuthority
-import org.springframework.security.core.authority.SimpleGrantedAuthority
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 @Entity
 class Member() : BaseTime() {
+
     @Column(length = 100, unique = true)
     lateinit var username: String
+
     @Column(length = 100)
     lateinit var password: String
+
     @Column(length = 100, unique = true)
     lateinit var apiKey: String
+
     @Column(length = 100)
     lateinit var nickname: String
     lateinit var profileImgUrl: String
@@ -37,8 +41,8 @@ class Member() : BaseTime() {
     val isAdmin: Boolean
         get() = username == "admin"
 
-    val authoritiesAsString: List<String>
-        get() = if(isAdmin) listOf("ROLE_ADMIN") else emptyList()
+    val authoritiesAsString:List<String>
+        get() = if (isAdmin) listOf("ROLE_ADMIN") else emptyList()
 
     val authorities: List<GrantedAuthority>
         get() = authoritiesAsString.map { SimpleGrantedAuthority(it) }
@@ -49,4 +53,6 @@ class Member() : BaseTime() {
     fun update(nickname: String) {
         this.nickname = nickname
     }
+
+
 }

@@ -1,7 +1,7 @@
 package com.example.upload.global.security;
 
 import com.example.upload.domain.member.member.entity.Member;
-import lombok.Getter;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -11,10 +11,19 @@ import java.util.Map;
 
 public class SecurityUser extends User implements OAuth2User {
 
-    @Getter
+
     private long id;
-    @Getter
+
+    public long getId() {
+        return id;
+    }
+
     private String nickname;
+
+    public String getNickname() {
+        return nickname;
+    }
+
     public SecurityUser(long id, String username, String password, String nickname, Collection<? extends GrantedAuthority> authorities) {
         super(username, password, authorities);
         this.id = id;

@@ -26,14 +26,13 @@ public class PostService {
     public Post write(Member author, String title, String content, boolean published, boolean listed) {
 
         return postRepository.save(
-                Post
-                        .builder()
-                        .author(author)
-                        .title(title)
-                        .content(content)
-                        .published(published)
-                        .listed(listed)
-                        .build()
+                new Post(
+                    author,
+                    title,
+                    content,
+                    published,
+                    listed
+                )
         );
     }
 

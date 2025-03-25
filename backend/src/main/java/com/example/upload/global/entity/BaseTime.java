@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-@SuperBuilder
 @EntityListeners(AuditingEntityListener.class)
 public abstract class BaseTime extends BaseEntity {
     @CreatedDate

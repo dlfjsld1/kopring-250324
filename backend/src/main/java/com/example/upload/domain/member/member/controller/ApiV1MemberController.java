@@ -38,7 +38,7 @@ public class ApiV1MemberController {
     public RsData<MemberDto> join(@RequestBody @Valid JoinReqBody reqBody) {
 
         memberService.findByUsername(reqBody.username())
-                .ifPresent(_ -> {
+                .ifPresent(ignored -> {
                     throw new ServiceException("409-1", "이미 사용중인 아이디입니다.");
                 });
 

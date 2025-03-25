@@ -50,7 +50,7 @@ public class ApiV1MemberControllerTest {
                 .andExpect(jsonPath("$.data").exists())
                 .andExpect(jsonPath("$.data.id").value(member.getId()))
                 .andExpect(jsonPath("$.data.nickname").value(member.getNickname()))
-                .andExpect(jsonPath("$.data.profileImgUrl").value(member.getProfileImgUrlOrDefaultUrl()));
+                .andExpect(jsonPath("$.data.profileImgUrl").value(member.getProfileImgUrlOrDefault()));
     }
 
     private ResultActions joinRequest(String username, String password, String nickname) throws Exception {
@@ -182,7 +182,7 @@ public class ApiV1MemberControllerTest {
                 .andExpect(jsonPath("$.data.item.nickname").value(member.getNickname()))
                 .andExpect(jsonPath("$.data.apiKey").value(member.getApiKey()))
                 .andExpect(jsonPath("$.data.accessToken").exists())
-                .andExpect(jsonPath("$.data.item.profileImgUrl").value(member.getProfileImgUrlOrDefaultUrl()));
+                .andExpect(jsonPath("$.data.item.profileImgUrl").value(member.getProfileImgUrlOrDefault()));
 
         resultActions
                 .andExpect(mvcResult -> {

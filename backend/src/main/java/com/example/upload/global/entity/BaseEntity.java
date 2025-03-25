@@ -6,21 +6,19 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 @MappedSuperclass
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@SuperBuilder
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public abstract class BaseEntity {
 
     @Id // PRIMARY KEY
     @GeneratedValue(strategy = GenerationType.IDENTITY) // AUTO_INCREMENT
-    @Setter(AccessLevel.PRIVATE)
+    @Setter(AccessLevel.PROTECTED)
     @EqualsAndHashCode.Include
-    private Long id; // long -> null X, Long -> null O
+    public Long id; // long -> null X, Long -> null O //TODO: 추후에 코틀린 전환
 
     public String getModelName() {
         String simpleName = this.getClass().getSimpleName();

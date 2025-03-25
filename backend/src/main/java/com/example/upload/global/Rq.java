@@ -51,11 +51,11 @@ public class Rq {
 
         SecurityUser user = (SecurityUser) principal;
 
-        return Member.builder()
-                .id(user.getId())
-                .username(user.getUsername())
-                .nickname(user.getNickname())
-                .build();
+        return new Member(
+                user.getId(),
+                user.getUsername(),
+                user.getNickname()
+        );
     }
 
     public String getHeader(String name) {

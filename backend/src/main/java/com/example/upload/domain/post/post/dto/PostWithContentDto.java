@@ -44,6 +44,6 @@ public class PostWithContentDto {
         this.authorName = post.getAuthor().getNickname();
         this.published = post.isPublished();
         this.listed = post.isListed();
-        this.authorProfileImgUrl = post.getAuthor().getProfileImgUrlOrDefaultUrl();
+        this.authorProfileImgUrl = post.getAuthor().getProfileImgUrlOrDefault();
     }
 }

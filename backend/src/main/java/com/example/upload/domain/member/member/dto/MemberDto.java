@@ -16,6 +16,6 @@ public class MemberDto {
     public MemberDto(Member member) {
         this.id = member.getId();
         this.nickname = member.getNickname();
-        this.profileImgUrl = member.getProfileImgUrlOrDefaultUrl();
+        this.profileImgUrl = member.getProfileImgUrlOrDefault();
     }
 }

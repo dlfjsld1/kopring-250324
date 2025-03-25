@@ -6,14 +6,19 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 @Entity
 @Getter
-@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
 public class PostGenFile extends GenFile {
+
+    public PostGenFile(Post post, TypeCode typeCode, int fileNo, String originalFileName, String metadataStr, String yyyyMmDd, String fileExtTypeCode, String fileExtType2Code, String fileExt, String fileName, long fileSize) {
+
+        super(fileNo, originalFileName, metadataStr, yyyyMmDd, fileExtTypeCode, fileExtType2Code, fileExt, fileName, fileSize);
+        this.post = post;
+        this.typeCode = typeCode;
+    }
 
     public enum TypeCode {
         attachment,

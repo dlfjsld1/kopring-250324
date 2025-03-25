@@ -17,13 +17,13 @@ public class MemberService {
 
     public Member join(String username, String password, String nickname, String profileImgUrl) {
 
-        Member member = Member.builder()
-                .username(username)
-                .password(password)
-                .apiKey(username)
-                .nickname(nickname)
-                .profileImgUrl(profileImgUrl)
-                .build();
+        Member member = new Member(
+                username,
+                password,
+                username,
+                nickname,
+                profileImgUrl
+        );
 
         return memberRepository.save(member);
     }
@@ -61,11 +61,13 @@ public class MemberService {
         String nickname = (String) payload.get("nickname");
 
         return Optional.of(
-                Member.builder()
-                        .id(id)
-                        .username(username)
-                        .nickname(nickname)
-                        .build()
+
+                new Member(
+                        id,
+                        username,
+
+                        nickname
+                )
         );
     }
 

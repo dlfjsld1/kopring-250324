@@ -10,13 +10,11 @@ import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@SuperBuilder
 public class Comment extends BaseTime {
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -26,6 +24,12 @@ public class Comment extends BaseTime {
     private Post post;
 
     private String content;
+
+    public Comment(Post post, Member author, String content) {
+        this.post = post;
+        this.author = author;
+        this.content = content;
+    }
 
     public void modify(String content) {
         this.content = content;

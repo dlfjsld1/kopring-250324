@@ -74,8 +74,10 @@ custom:
   dev:
     domain: localhost
     backUrl: "http://${custom.dev.domain}:${server.port}"
+    frontUrl: "http://${custom.dev.domain}:3000"
   site:
     backUrl: "${custom.dev.backUrl}"
+    frontUrl: "${custom.dev.frontUrl}"
   jwt:
     expire-seconds: "#{5}"
   genFile:

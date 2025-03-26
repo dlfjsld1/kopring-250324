@@ -5,11 +5,11 @@ import com.example.upload.domain.post.post.entity.Post
 import org.springframework.data.jpa.repository.JpaRepository
 import java.util.*
 
-interface PostRepository : JpaRepository<Post?, Long?>, CustomPostRepository {
+interface PostRepository : JpaRepository<Post, Long>, CustomPostRepository {
     fun findTopByOrderByIdDesc(): Optional<Post>
     fun findTop1ByAuthorAndPublishedAndTitleOrderByIdDesc(
-        author: Member?,
+        author: Member,
         published: Boolean,
-        title: String?
+        title: String
     ): Optional<Post>
 }

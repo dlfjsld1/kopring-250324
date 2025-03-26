@@ -87,7 +87,7 @@ class ApiV1PostController(
             )
         }
 
-        if (!post.published) {
+        if (!post!!.published) {
             val actor = rq.actor
             post.canRead(actor)
         }
@@ -149,7 +149,7 @@ class ApiV1PostController(
             )
         }
 
-        post.canModify(actor)
+        post!!.canModify(actor)
 
         postService.modify(post, reqBody.title, reqBody.content, reqBody.published, reqBody.listed)
 
@@ -173,7 +173,7 @@ class ApiV1PostController(
             )
         }
 
-        post.canDelete(actor)
+        post!!.canDelete(actor)
         postService.delete(post)
 
         return RsData(

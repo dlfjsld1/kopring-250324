@@ -87,7 +87,7 @@ class BaseInitData(
         val genFile3FilePath = SampleResource.IMG_GIF_SAMPLE1.makeCopy()
         post1.addGenFile(PostGenFile.TypeCode.thumbnail, genFile3FilePath)
 
-        post1.deleteGenFile(PostGenFile.TypeCode.attachment, 2)
+//        post1.deleteGenFile(PostGenFile.TypeCode.attachment, 2)
 
         val post10: Post = postService.write(
                 user2,

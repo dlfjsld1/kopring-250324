@@ -2,7 +2,6 @@ package com.example.upload.domain.post.post.dto
 
 import com.example.upload.standard.search.SearchKeywordType
 
-@JvmRecord
 data class PostListParamDto(
     val keywordType: SearchKeywordType,
     val keyword: String,

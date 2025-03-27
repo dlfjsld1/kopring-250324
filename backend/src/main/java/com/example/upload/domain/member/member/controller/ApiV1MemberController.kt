@@ -24,10 +24,10 @@ import org.springframework.web.bind.annotation.*
 class ApiV1MemberController(
     private val memberService: MemberService,
     private val rq: Rq,
-    private val postService: PostService,
+    private val postService: PostService
 ) {
 
-    @JvmRecord
+
     data class JoinReqBody(
         @field:NotBlank val username: String,
         @field:NotBlank val password: String,
@@ -38,7 +38,9 @@ class ApiV1MemberController(
     @PostMapping(value = ["/join"], produces = ["application/json;charset=UTF-8"])
     fun join(@RequestBody @Valid reqBody: JoinReqBody): RsData<MemberDto> {
         memberService.findByUsername(reqBody.username)
-            .ifPresent { throw ServiceException("409-1", "이미 사용중인 아이디입니다.") }
+            .ifPresent {
+                throw ServiceException("409-1", "이미 사용중인 아이디입니다.")
+            }
 
 
         val member = memberService.join(reqBody.username, reqBody.password, reqBody.nickname, "")
@@ -50,10 +52,10 @@ class ApiV1MemberController(
     }
 
 
-    @JvmRecord
+
     data class LoginReqBody(@field:NotBlank val username: String, @field:NotBlank val password: String)
 
-    @JvmRecord
+
     data class LoginResBody(
         @field:NonNull @param:NonNull val item: MemberDto,
         @field:NonNull @param:NonNull val apiKey: String,
@@ -62,7 +64,7 @@ class ApiV1MemberController(
 
     @Operation(summary = "로그인", description = "로그인 성공 시 ApiKey와 AccessToken 반환. 쿠키로도 반환")
     @PostMapping("/login")
-    fun login(@RequestBody @Valid reqBody: LoginReqBody, response: HttpServletResponse?): RsData<LoginResBody> {
+    fun login(@RequestBody  @Valid reqBody: LoginReqBody, response: HttpServletResponse?): RsData<LoginResBody> {
         val member = memberService.findByUsername(reqBody.username).orElseThrow {
             ServiceException(
                 "401-1",
@@ -76,7 +78,7 @@ class ApiV1MemberController(
 
         val accessToken = memberService.genAccessToken(member)
 
-        rq.addCookie("accessToken", accessToken)
+        rq!!.addCookie("accessToken", accessToken)
         rq.addCookie("apiKey", member.apiKey)
 
         return RsData(
@@ -93,7 +95,7 @@ class ApiV1MemberController(
     @Operation(summary = "로그아웃", description = "로그아웃 시 쿠키 삭제")
     @DeleteMapping("/logout")
     fun logout(session: HttpSession?): RsData<Empty> {
-        rq.removeCookie("accessToken")
+        rq!!.removeCookie("accessToken")
         rq.removeCookie("apiKey")
 
         return RsData("200-1", "로그아웃 되었습니다.")

@@ -50,7 +50,7 @@ class ApiV1PostGenFileController(
             )
         }
 
-        post.checkActorCanMakeNewGenFile(actor)
+        post!!.checkActorCanMakeNewGenFile(actor)
 
         val postGenFiles: MutableList<PostGenFile> = ArrayList()
 
@@ -89,7 +89,7 @@ class ApiV1PostGenFileController(
             )
         }
 
-        return post
+        return post!!
             .genFiles
             .map { postGenFile: PostGenFile? -> PostGenFileDto(postGenFile!!) }
 

@@ -35,7 +35,7 @@ class ApiV1CommentController(
             )
         }
 
-        return post.comments
+        return post!!.comments
             .stream()
             .map { comment: Comment? -> CommentDto(comment!!) }
             .toList()
@@ -52,13 +52,12 @@ class ApiV1CommentController(
             )
         }
 
-        val comment = post.getCommentById(id)
+        val comment = post!!.getCommentById(id)
 
         return CommentDto(comment)
     }
 
 
-    @JvmRecord
     data class WriteReqBody(val content: String)
 
     @Operation(summary = "댓글 작성", description = "게시글에 댓글을 작성합니다.")
@@ -77,7 +76,6 @@ class ApiV1CommentController(
     }
 
 
-    @JvmRecord
     data class CommentModifyReqBody(@field:NotBlank val content: String)
 
     @Operation(summary = "댓글 수정", description = "게시글의 댓글을 수정합니다.")
@@ -97,7 +95,7 @@ class ApiV1CommentController(
             )
         }
 
-        val comment = post.getCommentById(id)
+        val comment = post!!.getCommentById(id)
 
         comment.canModify(actor)
         comment.modify(reqBody.content)
@@ -120,7 +118,7 @@ class ApiV1CommentController(
             )
         }
 
-        val comment = post.getCommentById(id)
+        val comment = post!!.getCommentById(id)
 
         comment.canDelete(actor)
         post.deleteComment(comment)
@@ -140,7 +138,7 @@ class ApiV1CommentController(
             )
         }
 
-        val comment = post.addComment(actor, content)
+        val comment = post!!.addComment(actor, content)
 
         return comment
     }

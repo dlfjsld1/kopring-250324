@@ -22,26 +22,26 @@ class AppConfig {
         private lateinit var springServletMultipartMaxRequestSize: String
         private lateinit var tika: Tika
 
-        @JvmStatic
+        
         fun getObjectMapper(): ObjectMapper = objectMapper
-        @JvmStatic
+        
         fun getGenFileDirPath(): String = genFileDirPath
-        @JvmStatic
+        
         fun getSiteBackUrl(): String = siteBackUrl
-        @JvmStatic
+        
         fun getSiteFrontUrl(): String = siteFrontUrl
-        @JvmStatic
+        
         fun getSpringServletMultipartMaxFileSize(): String = springServletMultipartMaxFileSize
-        @JvmStatic
+        
         fun getSpringServletMultipartMaxRequestSize(): String = springServletMultipartMaxRequestSize
 
-        @JvmStatic
+        
         fun getTempDirPath(): String = System.getProperty("java.io.tmpdir")
 
-        @JvmStatic
+        
         fun getTika(): Tika = tika
 
-        @JvmStatic
+        
         @SneakyThrows
         fun getResourcesSampleDirPath(): String {
             val resource =
@@ -49,19 +49,19 @@ class AppConfig {
             return resource.file.absolutePath
         }
 
-        @JvmStatic
+        
         val isNotProd: Boolean
             get() = !isProd
 
-        @JvmStatic
+        
         val isProd: Boolean
             get() = environment.matchesProfiles("prod")
 
-        @JvmStatic
+        
         val isDev: Boolean
             get() = environment.matchesProfiles("dev")
 
-        @JvmStatic
+        
         val isTest: Boolean
             get() = environment.matchesProfiles("test")
 

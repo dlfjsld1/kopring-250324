@@ -106,7 +106,7 @@ class Ut {
             return metadata
         }
 
-        @JvmStatic
+        
         @SneakyThrows
         fun downloadByHttp(url: String, dirPath: String): String {
             return downloadByHttp(url, dirPath, true)
@@ -154,7 +154,7 @@ class Ut {
             return newFilePath
         }
 
-        @JvmStatic
+        
         fun getExtensionByTika(filePath: String?): String {
             val mineType = AppConfig.getTika().detect(filePath)
 
@@ -217,7 +217,7 @@ class Ut {
             }
         }
 
-        @JvmStatic
+        
         @SneakyThrows
         fun toFile(multipartFile: MultipartFile?, dirPath: String): String {
             if (multipartFile == null) return ""
@@ -241,7 +241,7 @@ class Ut {
             Files.createDirectories(path)
         }
 
-        @JvmStatic
+        
         @SneakyThrows
         fun rm(filePath: String) {
             val path = Path.of(filePath)
@@ -269,7 +269,7 @@ class Ut {
             }
         }
 
-        @JvmStatic
+        
         @SneakyThrows
         fun delete(filePath: String) {
             Files.deleteIfExists(Path.of(filePath))
@@ -308,7 +308,7 @@ class Ut {
     }
 
     object url {
-        @JvmStatic
+        
         fun encode(str: String): String {
             return try {
                 URLEncoder.encode(str, "UTF-8")
@@ -318,7 +318,7 @@ class Ut {
         }
 
 
-        @JvmStatic
+        
         fun removeDomain(url: String): String {
             return url.replaceFirst("https?://[^/]+".toRegex(), "")
         }
@@ -327,7 +327,7 @@ class Ut {
     object json {
         private val objectMapper: ObjectMapper = AppConfig.getObjectMapper()
 
-        @JvmStatic
+        
         fun toString(obj: Any?): String {
             try {
                 return objectMapper.writeValueAsString(obj)
@@ -339,7 +339,7 @@ class Ut {
 
     object jwt {
 
-        @JvmStatic
+        
         fun createToken(keyString: String, expireSeconds: Int, claims: Map<String, Any?>): String {
             val secretKey = Keys.hmacShaKeyFor(keyString.toByteArray())
 
@@ -356,7 +356,7 @@ class Ut {
             return jwt
         }
 
-        @JvmStatic
+        
         fun isValidToken(keyString: String, token: String?): Boolean {
             try {
                 val secretKey = Keys.hmacShaKeyFor(keyString.toByteArray())
@@ -375,7 +375,7 @@ class Ut {
         }
 
 
-        @JvmStatic
+        
         fun getPayload(keyString: String, jwtStr: String?): Map<String, Any> {
             val secretKey = Keys.hmacShaKeyFor(keyString.toByteArray())
 

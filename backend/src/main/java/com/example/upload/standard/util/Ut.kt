@@ -340,7 +340,7 @@ class Ut {
     object jwt {
 
         @JvmStatic
-        fun createToken(keyString: String, expireSeconds: Int, claims: Map<String?, Any?>?): String {
+        fun createToken(keyString: String, expireSeconds: Int, claims: Map<String, Any?>): String {
             val secretKey = Keys.hmacShaKeyFor(keyString.toByteArray())
 
             val issuedAt = Date()

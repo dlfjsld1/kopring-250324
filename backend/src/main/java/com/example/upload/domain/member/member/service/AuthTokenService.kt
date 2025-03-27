@@ -17,7 +17,7 @@ class AuthTokenService {
 
     fun genAccessToken(member: Member): String {
         return createToken(
-            keyString!!,
+            keyString,
             expireSeconds,
             mapOf("id" to member.id, "username" to member.username, "nickname" to member.nickname)
         )
@@ -32,6 +32,6 @@ class AuthTokenService {
         val username = payload["username"] as String
         val nickname = payload["nickname"] as String
 
-        return mapOf("id" to id, "username" to username, "nickname" to nickname)
+        return  mapOf("id" to id, "username" to username, "nickname" to nickname)
     }
 }
